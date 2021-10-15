@@ -2,9 +2,11 @@ package com.bridgelabz;
 
 public class BinarySearchTree<k extends Comparable<k>> {
     Node<k> root;
+
     public void add(k key) {
         this.root = this.insert(root, key);
     }
+
     private Node<k> insert(Node<k> root, k value) {
         if (root == null) {
             return new Node<>(value);
@@ -21,7 +23,17 @@ public class BinarySearchTree<k extends Comparable<k>> {
         return root;
 
     }
+    public int  getSize() {
+        return this.getSizeRecursive(root);
+    }
+    public int getSizeRecursive(Node<k> root) {
+        if(root==null) {
+            return 0;
+        }
+        return 1 + getSizeRecursive(root.left)+getSizeRecursive(root.right);
+    }
     public void printNodes() {
+
         printNodes(root);
     }
 

@@ -32,6 +32,7 @@ public class BinarySearchTree<k extends Comparable<k>> {
         }
         return 1 + getSizeRecursive(root.left)+getSizeRecursive(root.right);
     }
+
     public void printNodes() {
 
         printNodes(root);

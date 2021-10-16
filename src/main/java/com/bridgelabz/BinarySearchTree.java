@@ -33,6 +33,21 @@ public class BinarySearchTree<k extends Comparable<k>> {
         return 1 + getSizeRecursive(root.left)+getSizeRecursive(root.right);
     }
 
+    public boolean search(k key) {
+        return recursiveSearch(root, key);
+    }
+    public boolean recursiveSearch(Node<k> root, k value) {
+        if (root == null) {
+            return false;
+        }
+        if (root.value == value) {
+            System.out.println("it a node of tree " + value);
+
+            return true;
+        }
+        return recursiveSearch(root.left, value) || recursiveSearch(root.right, value);
+    }
+
     public void printNodes() {
 
         printNodes(root);
@@ -64,5 +79,8 @@ public class BinarySearchTree<k extends Comparable<k>> {
         element.printNodes();
         int size = element.getSize();
         System.out.println("Size of tree "+" " +size);
+        boolean search = element.search(63);
+        System.out.println("it is node of tree ? True/false : " +search);
+
     }
 }
